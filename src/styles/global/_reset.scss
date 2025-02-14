@@ -1,0 +1,195 @@
+/**
+ * Normalize the block model
+ */
+*,
+*::before,
+*::after {
+	box-sizing: border-box; /* set the box model to be border-box */
+}
+/**
+ * Set the height of the html and body to 100%
+ *
+ * We're using this to make sure that the footer will
+ * stick to the bottom of the page
+ */
+html,
+body {
+	height: 100%;
+}
+/**
+ * Set the height of the body element to 100% and line-height to 1.2
+ *
+ * The line-height is set to 1.2, because it's a value that works well
+ * with most fonts and is easy to read
+ */
+body {
+	line-height: 1.2;
+}
+/**
+ * Remove the default padding from lists
+ */
+ul,
+ol {
+	padding-left: 0; /* remove the default padding from the left */
+}
+/**
+ * Remove the default margins from the body and a few other elements
+ */
+body,
+blockquote,
+figure {
+	margin: 0; /* set the margins to 0 */
+}
+/**
+ * Remove the default margins from headings, paragraphs, lists,
+ * and definition lists
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl {
+	margin-block: 0; /* remove the default margins from the top and bottom */
+}
+/**
+ * Remove the default margin from definition terms
+ * */
+dd {
+	margin-left: 0;
+}
+/**
+ * Remove the default margin and padding from fieldsets
+ */
+fieldset {
+	margin-left: 0;
+	padding: 0;
+	border: none;
+}
+/**
+ * Remove the default list style from unordered and ordered lists
+ */
+ul,
+ol {
+	list-style: none;
+}
+/**
+ * Fix the display and max-width for images
+ *
+ * This is useful when we want to make sure that images don't overflow
+ * their containers
+ */
+img {
+	display: block; /* make images behave like block elements */
+	max-width: 100%; /* make images not overflow their containers */
+}
+/**
+ * Make SVG elements inherit the current color
+ *
+ * This is useful when we want to change the color of SVG elements
+ * using CSS
+ */
+svg *[fill] {
+	fill: currentColor;
+}
+svg *[stroke] {
+	stroke: currentColor;
+}
+/**
+ * Fix the bug with changing colors for SVG elements
+ * when using transitions or animations
+ */
+svg * {
+	transition-property: fill, stroke; /* fix the bug with changing colors */
+}
+/*
+ * Set the border and spacing of tables to be collapsed
+ * and set to 0, so that there is no space between cells
+ */
+table {
+	border-collapse: collapse; /* collapse the borders of adjacent cells */
+	border-spacing: 0; /* set the spacing between cells to 0 */
+}
+/*
+ * Set the cursor and color of buttons to be the same as
+ * the parent element, and set the background color of buttons
+ * to be transparent
+ */
+button {
+	cursor: pointer; /* make the cursor a pointer on hover */
+	background-color: transparent; /* set the background color to transparent */
+}
+/* Remove the default browser outline from input elements
+ * This is used to remove the annoying border that appears
+ * around input elements when they are focused. We set the
+ * outline property to "none" which removes the outline.
+ */
+input {
+	outline: none;
+	border: 0;
+}
+/**
+ * Set the font property of input, textarea, button and select elements
+ * to be inherited from their parent element. This is done to ensure
+ * consistent typography throughout the site.
+ */
+input,
+textarea,
+button,
+select {
+	font: inherit;
+}
+/*
+ * Set the color of links to be inherited from their parent
+ * element, and set the text decoration to be none by default
+ */
+a {
+	color: inherit; /* inherit the color of the parent */
+	text-decoration: none; /* set the text decoration to none by default */
+}
+/*
+ * Set the text decoration of links to be none when they are visited
+ */
+a:visited {
+	text-decoration: none;
+}
+/*
+ * Set the text decoration of links to be none when they are hovered
+ */
+a:hover {
+	text-decoration: none;
+}
+/*
+ * Set the quotes of blockquotes and quotes to be empty
+ */
+blockquote,
+q {
+	quotes: none; /* set the quotes to be empty */
+}
+/*
+ * Set the content of blockquotes and quotes to be empty
+ */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+}
+li {
+	list-style: none;
+}
+/**
+ * Disable all animations and transitions for people who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important; /* set animation duration to 0.01ms */
+		animation-iteration-count: 1 !important; /* set animation iteration count to 1 */
+		transition-duration: 0.01ms !important; /* set transition duration to 0.01ms */
+		scroll-behavior: auto !important; /* set scroll behavior to auto */
+	}
+}

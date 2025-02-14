@@ -1,0 +1,34 @@
+{
+	"name": "Portfolio",
+	"version": "1.0.0",
+	"description": "",
+	"main": "gulpfile.js",
+	"scripts": {
+		"dev": "gulp",
+		"build": "gulp build",
+		"start-project": "npm install && npm install"
+	},
+	"author": "Portfolio",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.16.0",
+		"@babel/preset-env": "^7.16.4",
+		"browser-sync": "^3.0.3",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-babel": "^8.0.0",
+		"gulp-cssnano": "^2.1.3",
+		"gulp-dart-sass": "^1.1.0",
+		"gulp-file-include": "^2.3.0",
+		"gulp-imagemin": "^7.1.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.0.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"rimraf": "^3.0.2",
+		"sass": "^1.62.0"
+	},
+	"dependencies": {
+		"axios": "^1.7.9"
+	}
+}

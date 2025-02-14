@@ -1,0 +1,24 @@
+body {
+	background: var(--background-body);
+}
+html {
+	scroll-behavior: smooth;
+	font-size: 16px;
+}
+::-webkit-scrollbar {
+	width: 0.75rem;
+	height: 0.5rem;
+}
+::-webkit-scrollbar-track {
+	background: var(--background-scrollbar-track);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--background-scrollbar-thumb);
+	border-radius: 0.75rem;
+}
+[class*='__container'] {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}

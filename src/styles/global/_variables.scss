@@ -1,0 +1,27 @@
+:root {
+	--main-font-family: 'Raleway', sans-serif;
+
+	--white: #ffffff;
+	--black: #000000;
+	--gray: #d7d7d7;
+	--gray-dark: #909090;
+
+	
+
+	--background-body: #DEDEDE;
+	--background-scrollbar-track: #fff;
+	--background-scrollbar-thumb: #19191b;
+
+	// border-radius
+	//2px
+	--border-radius-xxs: 2px;
+	//5px
+	--border-radius-xs: 5px;
+	//8px
+	--border-radius-s: 8px;
+	//10px
+	--border-radius-m: 10px;
+
+	// box-shadow
+	--box-shadow-header: 0px 12px 14px -9px rgba(61, 57, 61, 0.73);
+}

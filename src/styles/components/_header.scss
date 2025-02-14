@@ -1,0 +1,133 @@
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 40px 0;
+	z-index: 10;
+	transition: 0.1s;
+	// @include respond-to(tab-port-small) {
+	// 	padding: 25px 0;
+	// 	position: relative;
+	// 	&.open-menu {
+	// 		.header__nav-wrap {
+	// 			top: 100%;
+	// 		}
+	// 	}
+	// }
+	&.scroll-active {
+		box-shadow: var(--box-shadow-header);
+		padding: 8px 0;
+		background-color: var(--black);
+		svg *[fill] {
+			fill: var(--white);
+		}
+	}
+}
+
+.header__logo {
+	svg *[fill] {
+		fill: var(--black);
+	}
+}
+.header__wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav__list {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+	@include respond-to(tab-port-small) {
+		flex-direction: column;
+		gap: 25px;
+	}
+	.nav__item {
+		&:not(:last-child) a {
+			font-size: 17px;
+			transition: 0.3s;
+			position: relative;
+			color: var(--black);
+			background-color: var(--gray-dark);
+			padding: 10px 20px;
+			border-radius: 20px;
+			text-transform: uppercase;
+			font-weight: 700;
+			transition: 0.3s;
+			// &::after {
+			// 	content: '';
+			// 	position: absolute;
+			// 	left: 0;
+			// 	bottom: -1;
+			// 	width: 0;
+			// 	height: 2px;
+			// 	transition: 0.3s;
+			// 	background-color: var(--gray);
+			// }
+
+			&:hover {
+				color: var(--white);
+				background-color: var(--black);
+			}
+		}
+		.btn-primary {
+			font-size: 15px;
+		}
+	}
+}
+.burger {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+	display: none;
+	@include respond-to(tab-port-small) {
+		display: block;
+		.burger-line {
+			width: 12px;
+			height: 2px;
+			background-color: var(--white);
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			border-radius: 5px;
+			&:after,
+			&:before {
+				content: '';
+				position: absolute;
+				top: -6px;
+				left: 4px;
+				width: 16px;
+				height: 2px;
+				background-color: var(--white);
+				transition: 0.2s;
+				transform: translateX(-50%);
+				border-radius: 5px;
+			}
+			&:after {
+				top: 6px;
+				width: 8px;
+				left: 8px;
+			}
+		}
+	}
+	&.active {
+		.burger-line {
+			background-color: rgba(255, 255, 255, 0);
+			&::after {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) rotate(45deg);
+				width: 16px;
+			}
+
+			&::before {
+				transform: translate(-50%, -50%) rotate(-45deg);
+				top: 50%;
+				left: 50%;
+			}
+		}
+	}
+}

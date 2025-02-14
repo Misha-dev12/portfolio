@@ -1,0 +1,57 @@
+.footer {
+	padding: 50px 0;
+	background-color: var(--black);
+	@include respond-to(tab-port) {
+		padding: 35px 0 20px;
+	}
+}
+.footer__wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@include respond-to(tab-port) {
+		flex-direction: column;
+		gap: 25px;
+		@include respond-to(phone) {
+			gap: 20px;
+		}
+	}
+	p {
+		font-size: 16px;
+		color: var(--light-gray);
+	}
+}
+.footer__nav {
+	font-size: 18px;
+	display: flex;
+	gap: 40px;
+	@include respond-to(tab-port) {
+		gap: 25px;
+	}
+	@include respond-to(phone) {
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+	}
+	a {
+		color: var(--light-gray);
+		&:hover {
+			color: var(--blue);
+		}
+	}
+}
+
+
+.intro__social {
+	display: flex;
+	gap: 15px;
+	a {
+		background-color: var(--gray-dark);
+		padding: 8px;
+		transition: 0.3s;
+		&:hover {
+			transform: scale(1.2);
+			background-color: transparent;
+		}
+	}
+}

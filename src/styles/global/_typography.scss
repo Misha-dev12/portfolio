@@ -1,0 +1,50 @@
+body {
+	font-family: var(--main-font-family);
+	font-style: normal;
+}
+h1 {
+	font-family: 'Raleway';
+	font-weight: 700;
+	font-size: 80px;
+	text-transform: capitalize;
+	color: var(--black);
+	@include respond-to(tab-port) {
+		font-size: 60px;		
+	}
+	@include respond-to(phone) {
+		font-size: 55px;
+	}
+	@include respond-to(phone-small) {
+		font-size: 42px;
+	}
+}
+h2 {
+	font-family: 'Raleway';
+	font-weight: 700;
+	font-size: 30px;	
+	text-transform: uppercase;
+	color: var(--black);
+	@include respond-to(phone) {
+		font-size: 20px;
+	}
+	@include respond-to(phone-small) {
+		font-size: 15px;
+	}
+}
+h3 {
+	font-family: 'Raleway';
+	font-weight: 400;
+	font-size: 22px;
+	text-transform: uppercase;
+	color: var(--black);
+}
+p {
+	font-family: 'Raleway';
+	font-weight: 400;
+	font-size: 14px;	
+	color: var(--black);
+}
+a {
+	color: var(--white);
+	transition: 0.3s;	
+}

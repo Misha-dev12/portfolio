@@ -1,0 +1,29 @@
+.btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	user-select: none;
+	text-transform: uppercase;
+	border: 2px solid;
+	transition: 0.3s;
+	border-radius: 30px;
+	cursor: pointer;
+	text-align: center;
+	color: var(--black);
+	padding: 12px 24px;	
+	font-weight: 700;
+	font-size: 15px;
+	border-color: var(--white);
+	background-color: var(--white);
+	@include respond-to(tab-port-small) {
+		font-size: 16px;
+		max-width: 166px;
+		padding: 9px;
+	}
+	&:hover {
+		background-color: transparent;
+		color: var(--white);
+		border-color: var(--white);
+	}
+}
