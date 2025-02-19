@@ -4,16 +4,17 @@
 	width: 100%;
 	padding: 40px 0;
 	z-index: 10;
-	transition: 0.1s;
-	// @include respond-to(tab-port-small) {
-	// 	padding: 25px 0;
-	// 	position: relative;
-	// 	&.open-menu {
-	// 		.header__nav-wrap {
-	// 			top: 100%;
-	// 		}
-	// 	}
-	// }
+	transition: 0.3s;
+	@include respond-to(tab-port) {
+		padding: 16px 0;
+	}
+	@include respond-to(phone) {
+		&.open-menu {
+			.header__nav {
+				left: 0;
+			}
+		}
+	}
 	&.scroll-active {
 		box-shadow: var(--box-shadow-header);
 		padding: 8px 0;
@@ -23,10 +24,22 @@
 		}
 	}
 }
-
 .header__logo {
-	svg *[fill] {
-		fill: var(--black);
+	z-index: 2;
+	svg {
+		[fill] {
+			fill: var(--black);
+			transition: 0.3s;
+		}
+		@include respond-to(phone) {
+			width: 48px;
+			height: 40px;
+		}
+	}
+
+	transition: 0.9s;
+	&:hover {
+		transform: rotate(360deg);
 	}
 }
 .header__wrap {
@@ -34,45 +47,60 @@
 	justify-content: space-between;
 	align-items: center;
 }
-
+.header__nav {
+	@include respond-to(phone) {
+		position: absolute;
+		background-color: var(--gray-dark);
+		width: 100%;
+		height: 100vh;
+		top: 0;
+		left: 100%;
+		z-index: 1;
+		transition: 0.3s;
+		padding: 120px 20px 20px 20px;
+	}
+}
 .nav__list {
 	display: flex;
 	align-items: center;
 	gap: 60px;
+	@include respond-to(tab-port) {
+		gap: 25px;
+	}
 	@include respond-to(tab-port-small) {
+		gap: 14px;
+	}
+	@include respond-to(phone) {
 		flex-direction: column;
 		gap: 25px;
 	}
 	.nav__item {
-		&:not(:last-child) a {
+		a {
 			font-size: 17px;
-			transition: 0.3s;
 			position: relative;
-			color: var(--black);
-			background-color: var(--gray-dark);
+			color: var(--white);
+			background: linear-gradient(
+				90deg,
+				var(--gray-dark) 0%,
+				var(--black) 100%
+			);
 			padding: 10px 20px;
 			border-radius: 20px;
 			text-transform: uppercase;
 			font-weight: 700;
-			transition: 0.3s;
-			// &::after {
-			// 	content: '';
-			// 	position: absolute;
-			// 	left: 0;
-			// 	bottom: -1;
-			// 	width: 0;
-			// 	height: 2px;
-			// 	transition: 0.3s;
-			// 	background-color: var(--gray);
-			// }
-
+			background-size: 200% 100%;
+			transition: background-position 0.4s ease-in-out, color 0.3s;
+			@include respond-to(tab-port) {
+				font-size: 14px;
+				padding: 8px 16px;
+			}
+			@include respond-to(tab-port-small) {
+				padding: 6px 12px;
+			}
 			&:hover {
 				color: var(--white);
-				background-color: var(--black);
+				background-position: 100% 0;
 			}
-		}
-		.btn-primary {
-			font-size: 15px;
 		}
 	}
 }
@@ -82,10 +110,11 @@
 	position: relative;
 	cursor: pointer;
 	display: none;
-	@include respond-to(tab-port-small) {
+	@include respond-to(phone) {
 		display: block;
+		z-index: 2;
 		.burger-line {
-			width: 12px;
+			width: 14px;
 			height: 2px;
 			background-color: var(--white);
 			position: absolute;
@@ -99,7 +128,7 @@
 				position: absolute;
 				top: -6px;
 				left: 4px;
-				width: 16px;
+				width: 20px;
 				height: 2px;
 				background-color: var(--white);
 				transition: 0.2s;
@@ -108,7 +137,7 @@
 			}
 			&:after {
 				top: 6px;
-				width: 8px;
+				width: 12px;
 				left: 8px;
 			}
 		}
@@ -117,16 +146,19 @@
 		.burger-line {
 			background-color: rgba(255, 255, 255, 0);
 			&::after {
+				width: 18px;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%) rotate(45deg);
-				width: 16px;
+				background-color: var(--black);
 			}
 
 			&::before {
 				transform: translate(-50%, -50%) rotate(-45deg);
 				top: 50%;
 				left: 50%;
+				background-color: var(--black);
+				width: 18px;
 			}
 		}
 	}

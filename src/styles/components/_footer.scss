@@ -1,57 +1,85 @@
 .footer {
 	padding: 50px 0;
 	background-color: var(--black);
-	@include respond-to(tab-port) {
-		padding: 35px 0 20px;
+	@include respond-to(tab-port-small) {
+		padding: 40px 0 30px;
 	}
 }
-.footer__wrap {
+.footer__top {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 25px;
+}
+.footer__back {
+	color: var(--white);
+	font-weight: 600;
+	font-size: 15px;
+	position: relative;
+	cursor: pointer;
+	transition: 0.3s;
+	padding-top: 10px;
+	&:hover {
+		&::before {
+			top: -15px;
+		}
+		color: var(--gray-dark);
+	}
+	&::before {
+		content: '';
+		background-image: url('../img/icon/arrow.png');
+		background-repeat: no-repeat;
+		top: -10px;
+		left: 50%;
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		transform: translateX(-50%);
+		transition: 0.3s;
+	}
+}
+.footer__bottom {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	@include respond-to(tab-port) {
+	gap: 25px;
+		@include respond-to(tab-port) {
 		flex-direction: column;
-		gap: 25px;
-		@include respond-to(phone) {
-			gap: 20px;
-		}
 	}
+
 	p {
-		font-size: 16px;
-		color: var(--light-gray);
+		color: var(--white);
+		flex: 1;
+		text-align: right;
 	}
 }
-.footer__nav {
-	font-size: 18px;
-	display: flex;
-	gap: 40px;
-	@include respond-to(tab-port) {
-		gap: 25px;
-	}
-	@include respond-to(phone) {
-		flex-direction: column;
-		align-items: center;
-		gap: 15px;
-	}
-	a {
-		color: var(--light-gray);
+.footer__logo {
+	flex: 1;
+	.logo {
+		display: inline-flex;
+		transition: 0.9s;
 		&:hover {
-			color: var(--blue);
+			transform: rotate(360deg);
+			svg *[fill] {
+				fill: var(--gray-dark);
+			}
 		}
 	}
 }
-
-
-.intro__social {
+.footer__social {
 	display: flex;
 	gap: 15px;
+
 	a {
-		background-color: var(--gray-dark);
-		padding: 8px;
 		transition: 0.3s;
+		svg *[fill] {
+			fill: var(--white);
+			transition: 0.3s;
+		}
 		&:hover {
 			transform: scale(1.2);
-			background-color: transparent;
+			svg *[fill] {
+				fill: var(--gray-dark);
+			}
 		}
 	}
 }

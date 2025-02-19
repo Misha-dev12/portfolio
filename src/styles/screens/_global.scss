@@ -7,4 +7,18 @@
 .page {
 	flex: 1 1 auto;
 }
-
+[class$='__title'] {
+	display: inline-flex;
+	border: 5px solid var(--black);
+	padding: 25px 60px;
+	letter-spacing: 10px;
+	text-align: center;
+	@include respond-to(tab-port-small) {
+		padding: 20px;
+	}
+}
+[class$='__title-wrap'] {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
