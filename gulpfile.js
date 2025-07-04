@@ -157,6 +157,16 @@ const video = function () {
 };
 //----------------------------------- Serve ----------------------------//
 
+// AOS CSS
+const copyAosCss = function () {
+	return src('node_modules/aos/dist/aos.css').pipe(dest(path.build.css));
+};
+
+// AOS JS
+const copyAosJs = function () {
+	return src('node_modules/aos/dist/aos.js').pipe(dest(path.build.js));
+};
+
 const build = parallel(
 	html,
 	lib_scripts,
@@ -165,7 +175,9 @@ const build = parallel(
 	scripts,
 	image,
 	css_libs,
-	video
+	video,
+	copyAosCss,
+	copyAosJs
 );
 
 const without_min = parallel(
@@ -192,6 +204,8 @@ const serve = series(build, function () {
 	watch(path.watch.img, image);
 	watch(path.watch.cssLib, css_libs);
 	watch(path.watch.video, video);
+	watch(path.watch.video, copyAosCss);
+	watch(path.watch.video, copyAosJs);
 });
 
 //----------------------------------- Exports ----------------------------//

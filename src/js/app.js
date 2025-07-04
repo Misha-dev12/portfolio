@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function () {
+	AOS.init({
+		duration: 1000, 
+    delay: 100,   
+	});
+});
+document.addEventListener('aos:in', ({ detail }) => {
+	detail.removeAttribute('style');
+});
 function App() {
 	// scroll header
 	const headerFixed = document.querySelector('.header');

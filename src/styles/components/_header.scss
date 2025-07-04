@@ -26,6 +26,7 @@
 }
 .header__logo {
 	z-index: 2;
+	transition: 0.9s;
 	svg {
 		[fill] {
 			fill: var(--black);
@@ -36,7 +37,6 @@
 			height: 40px;
 		}
 	}
-	transition: 0.9s;
 	&:hover {
 		transform: rotate(360deg);
 	}
