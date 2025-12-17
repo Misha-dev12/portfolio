@@ -99,8 +99,7 @@
 			@include respond-to(tab-port-small) {
 				padding: 6px 12px;
 			}
-			&:hover {
-				color: var(--white);
+			&:hover {			
 				background-position: 100% 0;
 			}
 		}
@@ -162,5 +161,10 @@
 				transform: translate(-50%, -50%) rotate(-45deg);
 			}
 		}
+	}
+}
+.nav__item.active__item {
+	a {
+		background-position: 100% 0;
 	}
 }

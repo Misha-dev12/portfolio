@@ -9,10 +9,23 @@
 }
 [class$='__title'] {
 	display: inline-flex;
-	border: 5px solid var(--black);
-	padding: 25px 60px;
+	padding: 20px 50px;
 	letter-spacing: 10px;
 	text-align: center;
+	position: relative;	
+	&::after {
+		content: '';
+		position: absolute;
+		inset: -5px;
+		border: 3px solid;
+		border-image: linear-gradient(
+				90deg,
+				var(--orange),
+				var(--blue),
+				var(--green)
+			)
+			1;
+	}
 	@include respond-to(tab-port-small) {
 		padding: 20px;
 	}

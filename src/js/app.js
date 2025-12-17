@@ -1,14 +1,8 @@
-document.addEventListener('DOMContentLoaded', function () {
-	AOS.init({
-		duration: 1000, 
-    delay: 100,   
-	});
-});
 document.addEventListener('aos:in', ({ detail }) => {
 	detail.removeAttribute('style');
 });
 function App() {
-	// scroll header
+	// scroll fixed header
 	const headerFixed = document.querySelector('.header');
 	const setFixedHeader = () => {
 		headerFixed.classList.toggle('scroll-active', window.scrollY >= 60);
@@ -41,7 +35,13 @@ function App() {
 	burger.addEventListener('click', toggleMenu);
 
 	navItems.forEach(item => {
-		item.addEventListener('click', closeMenu);
+		item.addEventListener('click', () => {
+			closeMenu();
+			navItems.forEach(el => {
+				el.classList.remove('active__item')
+			})
+			item.classList.add('active__item');
+		});
 	});
 	window.addEventListener('resize', () => {
 		if (window.innerWidth > 768) {
@@ -63,4 +63,11 @@ function App() {
 		});
 	});
 }
-App();
+
+document.addEventListener('DOMContentLoaded', function () {
+	AOS.init({
+		duration: 1000,
+		delay: 100,
+	});
+	App();
+});
