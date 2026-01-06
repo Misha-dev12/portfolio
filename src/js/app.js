@@ -38,8 +38,8 @@ function App() {
 		item.addEventListener('click', () => {
 			closeMenu();
 			navItems.forEach(el => {
-				el.classList.remove('active__item')
-			})
+				el.classList.remove('active__item');
+			});
 			item.classList.add('active__item');
 		});
 	});
@@ -62,6 +62,71 @@ function App() {
 			document.getElementById(button.dataset.tab).classList.add('active');
 		});
 	});
+}
+
+///animation snow
+const month = new Date().getMonth();
+if (month === 11 || month === 0 || month === 1) {
+	const canvas = document.querySelector('.snow');
+	const ctx = canvas.getContext('2d');
+
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	let flakes = [];
+	let angle = 0;
+
+	for (let i = 0; i < 100; i++) {
+		flakes.push({
+			x: Math.random() * canvas.width,
+			y: Math.random() * canvas.height,
+			size: Math.random() * 20 + 10,
+			speed: Math.random() * 1 + 0.2,
+			char: ['❄', '❅', '❆'][Math.floor(Math.random() * 3)],
+			color: `rgba(255, 255, 255, ${Math.random() * 0.6 + 0.4})`,
+		});
+	}
+
+	function drawSnow() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		flakes.forEach(f => {
+			ctx.font = `${f.size}px Arial`;
+			ctx.fillStyle = f.color;
+			ctx.fillText(f.char, f.x, f.y);
+		});
+
+		moveSnow();
+	}
+
+	function moveSnow() {
+		angle += 0.01;
+
+		flakes.forEach(f => {
+			f.y += f.speed;
+			f.x += Math.sin(angle) * 0.2;
+
+			if (f.y > canvas.height) {
+				f.y = -20;
+				f.x = Math.random() * canvas.width;
+			}
+		});
+	}
+
+	function animateSnow() {
+		drawSnow();
+		requestAnimationFrame(animateSnow);
+	}
+
+	animateSnow();
+
+	window.addEventListener('resize', () => {
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+	});
+} else {
+	const canvas = document.querySelector('.snow');
+	if (canvas) canvas.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
