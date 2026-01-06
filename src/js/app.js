@@ -66,6 +66,7 @@ function App() {
 
 ///animation snow
 const month = new Date().getMonth();
+
 if (month === 11 || month === 0 || month === 1) {
 	const canvas = document.querySelector('.snow');
 	const ctx = canvas.getContext('2d');
@@ -73,10 +74,13 @@ if (month === 11 || month === 0 || month === 1) {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 
+	const isMobile = window.innerWidth <= 768;
+	const flakesCount = isMobile ? 30 : 100;
+
 	let flakes = [];
 	let angle = 0;
 
-	for (let i = 0; i < 100; i++) {
+	for (let i = 0; i < flakesCount; i++) {
 		flakes.push({
 			x: Math.random() * canvas.width,
 			y: Math.random() * canvas.height,
